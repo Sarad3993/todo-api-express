@@ -1,5 +1,14 @@
-const express = require('express');
-const app = express()
+const express = require("express");
+const app = express();
+
+const tasks = require('./routes/tasks')
+
+
+// middleware 
+app.use(express.json())
+
+
+app.use('/',tasks)
 
 
 
@@ -8,15 +17,10 @@ const app = express()
 
 
 
-
-
-
-
-app.listen(3000,"localhost",(err)=>{
-    if(!err){
-        console.log("Server connected to port 3000");
-    }
-    else{
-        console.log("Server error");
-    }
-})
+app.listen(3000, "localhost", (err) => {
+  if (!err) {
+    console.log("Server connected to port 3000");
+  } else {
+    console.log("Server error");
+  }
+});
