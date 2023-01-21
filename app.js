@@ -3,16 +3,12 @@ const app = express();
 const routes = require('./routes/tasks');
 const connectDB = require('./db/connect');
 require('dotenv').config()
-const notFound = require('./middlewares/not-found');
 const errorHandler = require("./middlewares/error-handler");
 
 // middleware 
 app.use(express.json())
 
-//routes
 app.use('/',routes)
-
-app.use(notFound)
 
 app.use(errorHandler)
 
